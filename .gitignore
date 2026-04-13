@@ -1,0 +1,9 @@
+backend/.env
+frontend/.env
+frontend/node_modules/
+frontend/dist/
+backend/.venv/
+backend/uploads/
+backend/app/storage/faiss.index
+backend/app/storage/metadata.json
+__pycache__/
