@@ -1,0 +1,23 @@
+services:
+  backend:
+    build:
+      context: ./backend
+    env_file:
+      - ./backend/.env
+    restart: unless-stopped
+    expose:
+      - "8000"
+    volumes:
+      - ./backend/app/storage:/app/app/storage
+      - ./backend/uploads:/app/uploads
+      - ./data:/app/../data
+      - ./docs:/app/../docs
+
+  frontend:
+    build:
+      context: ./frontend
+    depends_on:
+      - backend
+    restart: unless-stopped
+    ports:
+      - "80:80"
